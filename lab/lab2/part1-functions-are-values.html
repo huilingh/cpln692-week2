@@ -68,7 +68,20 @@
 
       /* Define your function here */
 
-      for (var i = 0; i < theArray.length, i++) { /* Inside the loop*/ }
+      var addValue = function (item) {
+        if (typeof item === "string") {
+          yourSum = yourSum + item.length;
+        }
+        else if (typeof item === "number") {
+          yourSum = yourSum + item;
+        }
+        else {}
+      }
+
+
+      for (var i = 0; i < theArray.length; i++) {
+        addValue(theArray[i]);
+       /* Inside the loop*/ }
 
       /* =====================
 

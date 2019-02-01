@@ -70,7 +70,12 @@
 
     ===================== */
 
-
+    var dataFiltered = [];
+    for (i = 0; i < data.length; i++) {
+      if (data[i][3] > 20) {
+        dataFiltered.push(data[i])
+      } else {}
+    }
 
     /* =====================
 
@@ -97,13 +102,36 @@
 
     ===================== */
 
-
+    for (i = 0; i < dataFiltered.length; i++) {
+      L.marker([dataFiltered[i][1], dataFiltered[i][0]]).addTo(map);
+    }
 
     /* =====================
 
     End code to add markers to map
 
     ===================== */
+
+    var dataDirty = bikeArrayDirty;
+    var dirtyCleaned = [];
+
+
+    for (i = 0; i < dataDirty.length; i++) {
+      var info = [];
+      for (j = 0; j < dataDirty[i].length; j++) {
+        var coor = Number(dataDirty[i][j]);
+        if (Number.isNaN(coor) === false) {info.push(coor)}
+      }
+      dirtyCleaned.push(info);
+    }
+    console.log(dirtyCleaned);
+
+    // for (i = 0; i < dirtyCleaned.length; i++) {
+    //   L.marker([dirtyCleaned[i][1], dirtyCleaned[i][0]]).addTo(map);
+    // }
+
+
+
 
     </script>
   </body>
